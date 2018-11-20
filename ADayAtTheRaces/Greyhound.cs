@@ -17,8 +17,25 @@ namespace ADayAtTheRaces
 
         public bool Run()
         {
+            Location += Randomizer.Next(4);
+            MyPictureBox.Left = StartingPosition + Location;
+            MyPictureBox.Refresh();
+
+            if (MyPictureBox.Left >= RacetrackLength - MyPictureBox.Width)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
 
+        public void TakeStartingPosition()
+        {
+            Location = 0;
+            MyPictureBox.Left = StartingPosition;
+        }
     }
 }
