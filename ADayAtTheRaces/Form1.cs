@@ -16,5 +16,30 @@ namespace ADayAtTheRaces
         {
             InitializeComponent();
         }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void joeBetLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void joeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bobRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void alRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
