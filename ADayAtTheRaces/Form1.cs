@@ -52,11 +52,37 @@ namespace ADayAtTheRaces
                 Randomizer = MyRandomizer
             };
 
+            guy[0] = new Guy() { Cash = 50, MyLabel = joeBetLabel, MyRadioButton = joeRadioButton, Name = "Joe" };
+            guy[1] = new Guy() { Cash = 75, MyLabel = bobBetLabel, MyRadioButton = bobRadioButton, Name = "Bob" };
+            guy[2] = new Guy() { Cash = 45, MyLabel = alBetLabel, MyRadioButton = alRadioButton, Name = "Al" };
 
+            minimumBetLabel.Text = "Minimum bet: " + cashBet.Minimum + "bucks";
 
+            refreshGuyState();
         }
 
-        
+        public void refreshGuyState()
+        {
+            for (int i = 0; i < guy.Length; i++)
+            {
+                guy[i].ClearBet();
+            }
+        }
+
+        private void joeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            nameLabel.Text = guy[0].Name;
+        }
+
+        private void bobRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            nameLabel.Text = guy[1].Name;
+        }
+
+        private void alRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            nameLabel.Text = guy[2].Name;         
+        }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
@@ -64,21 +90,6 @@ namespace ADayAtTheRaces
         }
 
         private void joeBetLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void joeRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bobRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void alRadioButton_CheckedChanged(object sender, EventArgs e)
         {
 
         }

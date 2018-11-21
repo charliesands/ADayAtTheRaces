@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.racetrackPictureBox = new System.Windows.Forms.PictureBox();
             this.dogPictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,21 +42,22 @@
             this.alRadioButton = new System.Windows.Forms.RadioButton();
             this.nameLabel = new System.Windows.Forms.Label();
             this.betsButton = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.cashBet = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.dogChoice = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.joeBetLabel = new System.Windows.Forms.Label();
             this.bobBetLabel = new System.Windows.Forms.Label();
             this.alBetLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.racetrackPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cashBet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dogChoice)).BeginInit();
             this.SuspendLayout();
             // 
             // racetrackPictureBox
@@ -137,6 +139,7 @@
             // joeRadioButton
             // 
             this.joeRadioButton.AutoSize = true;
+            this.joeRadioButton.Checked = true;
             this.joeRadioButton.Location = new System.Drawing.Point(21, 347);
             this.joeRadioButton.Name = "joeRadioButton";
             this.joeRadioButton.Size = new System.Drawing.Size(123, 21);
@@ -153,7 +156,6 @@
             this.bobRadioButton.Name = "bobRadioButton";
             this.bobRadioButton.Size = new System.Drawing.Size(128, 21);
             this.bobRadioButton.TabIndex = 8;
-            this.bobRadioButton.TabStop = true;
             this.bobRadioButton.Text = "bobRadioButton";
             this.bobRadioButton.UseVisualStyleBackColor = true;
             this.bobRadioButton.CheckedChanged += new System.EventHandler(this.bobRadioButton_CheckedChanged);
@@ -165,7 +167,6 @@
             this.alRadioButton.Name = "alRadioButton";
             this.alRadioButton.Size = new System.Drawing.Size(115, 21);
             this.alRadioButton.TabIndex = 9;
-            this.alRadioButton.TabStop = true;
             this.alRadioButton.Text = "alRadioButton";
             this.alRadioButton.UseVisualStyleBackColor = true;
             this.alRadioButton.CheckedChanged += new System.EventHandler(this.alRadioButton_CheckedChanged);
@@ -188,23 +189,23 @@
             this.betsButton.Text = "Bets";
             this.betsButton.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // cashBet
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(131, 427);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.cashBet.Location = new System.Drawing.Point(131, 427);
+            this.cashBet.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.cashBet.Minimum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(44, 23);
-            this.numericUpDown1.TabIndex = 12;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.cashBet.Name = "cashBet";
+            this.cashBet.Size = new System.Drawing.Size(44, 23);
+            this.cashBet.TabIndex = 12;
+            this.cashBet.Value = new decimal(new int[] {
             5,
             0,
             0,
@@ -219,28 +220,28 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "bucks on dog number";
             // 
-            // numericUpDown2
+            // dogChoice
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(332, 427);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.dogChoice.Location = new System.Drawing.Point(332, 427);
+            this.dogChoice.Maximum = new decimal(new int[] {
             4,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.dogChoice.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(45, 23);
-            this.numericUpDown2.TabIndex = 14;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.dogChoice.Name = "dogChoice";
+            this.dogChoice.Size = new System.Drawing.Size(45, 23);
+            this.dogChoice.TabIndex = 14;
+            this.dogChoice.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.dogChoice.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // label3
             // 
@@ -299,9 +300,9 @@
             this.Controls.Add(this.bobBetLabel);
             this.Controls.Add(this.joeBetLabel);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.dogChoice);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.cashBet);
             this.Controls.Add(this.betsButton);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.alRadioButton);
@@ -315,7 +316,10 @@
             this.Controls.Add(this.dogPictureBox1);
             this.Controls.Add(this.racetrackPictureBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.racetrackPictureBox)).EndInit();
@@ -323,8 +327,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cashBet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dogChoice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,14 +348,15 @@
         private System.Windows.Forms.RadioButton alRadioButton;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Button betsButton;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown cashBet;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown dogChoice;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label joeBetLabel;
         private System.Windows.Forms.Label bobBetLabel;
         private System.Windows.Forms.Label alBetLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
