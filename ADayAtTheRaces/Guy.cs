@@ -17,7 +17,7 @@ namespace ADayAtTheRaces
 
         public void UpdateLabels()
         {
-            MyRadioButton.Text = Name + " has" + Cash + " bucks.";
+            MyRadioButton.Text = Name + " has " + Cash + " bucks.";
             MyLabel.Text = MyBet.GetDescription();
         }
 
@@ -36,6 +36,7 @@ namespace ADayAtTheRaces
             }
             else
             {
+                MessageBox.Show("Not enough cash to bet.");
                 return false;
             }
         }

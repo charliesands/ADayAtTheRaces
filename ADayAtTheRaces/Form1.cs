@@ -56,7 +56,7 @@ namespace ADayAtTheRaces
             guy[1] = new Guy() { Cash = 75, MyLabel = bobBetLabel, MyRadioButton = bobRadioButton, Name = "Bob" };
             guy[2] = new Guy() { Cash = 45, MyLabel = alBetLabel, MyRadioButton = alRadioButton, Name = "Al" };
 
-            minimumBetLabel.Text = "Minimum bet: " + cashBet.Minimum + "bucks";
+            minimumBetLabel.Text = "Minimum bet: " + cashBet.Minimum + " bucks";
 
             refreshGuyState();
         }
@@ -112,7 +112,12 @@ namespace ADayAtTheRaces
 
         private void raceButton_Click(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < greyhoundArray.Length; i++)
+            {
+                greyhoundArray[i].TakeStartingPosition();
+            }
+            betBox.Enabled = false;
+            timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
