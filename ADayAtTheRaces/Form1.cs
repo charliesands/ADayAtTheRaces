@@ -12,7 +12,7 @@ namespace ADayAtTheRaces
 {
     public partial class Form1 : Form
     {
-        Greyhound[] GreyhoundArray = new Greyhound[4];
+        Greyhound[] greyhoundArray = new Greyhound[4];
         Guy[] guy = new Guy[3];
         Random MyRandomizer = new Random();
 
@@ -20,7 +20,7 @@ namespace ADayAtTheRaces
         {
             InitializeComponent();
 
-            GreyhoundArray[0] = new Greyhound()
+            greyhoundArray[0] = new Greyhound()
             {
                 MyPictureBox = dogPictureBox1,
                 StartingPosition = dogPictureBox1.Left,
@@ -28,7 +28,7 @@ namespace ADayAtTheRaces
                 Randomizer = MyRandomizer
             };
 
-            GreyhoundArray[1] = new Greyhound()
+            greyhoundArray[1] = new Greyhound()
             {
                 MyPictureBox = dogPictureBox2,
                 StartingPosition = dogPictureBox2.Left,
@@ -36,7 +36,7 @@ namespace ADayAtTheRaces
                 Randomizer = MyRandomizer
             };
 
-            GreyhoundArray[2] = new Greyhound()
+            greyhoundArray[2] = new Greyhound()
             {
                 MyPictureBox = dogPictureBox3,
                 StartingPosition = dogPictureBox3.Left,
@@ -44,7 +44,7 @@ namespace ADayAtTheRaces
                 Randomizer = MyRandomizer
             };
 
-            GreyhoundArray[3] = new Greyhound()
+            greyhoundArray[3] = new Greyhound()
             {
                 MyPictureBox = dogPictureBox4,
                 StartingPosition = dogPictureBox4.Left,
@@ -92,6 +92,51 @@ namespace ADayAtTheRaces
         private void joeBetLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void betsButton_Click(object sender, EventArgs e)
+        {
+            if (joeRadioButton.Checked)
+            {
+                guy[0].PlaceBet((int)cashBet.Value, (int)dogChoice.Value);
+            }
+            if (bobRadioButton.Checked)
+            {
+                guy[1].PlaceBet((int)cashBet.Value, (int)dogChoice.Value);
+            }
+            if (alRadioButton.Checked)
+            {
+                guy[2].PlaceBet((int)cashBet.Value, (int)dogChoice.Value);
+            }
+        }
+
+        private void raceButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int winningDog = 0;
+
+            for (int i = 0; i < greyhoundArray.Length; i++)
+            {
+                if (greyhoundArray[i].Run())
+                {
+                    timer1.Stop();
+                    winningDog = i + 1;
+                    MessageBox.Show("Dog #" + winningDog + " won the race!");
+
+                    for (int j = 0; j < guy.Length; j++)
+                    {
+                        guy[j].Collect(winningDog);
+                    }
+
+                    refreshGuyState();
+                    betBox.Enabled = true;
+                    break;
+                }
+            }
         }
     }
 }

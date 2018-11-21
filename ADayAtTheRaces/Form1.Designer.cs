@@ -49,8 +49,9 @@
             this.joeBetLabel = new System.Windows.Forms.Label();
             this.bobBetLabel = new System.Windows.Forms.Label();
             this.alBetLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.raceButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.betBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.racetrackPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox2)).BeginInit();
@@ -188,6 +189,7 @@
             this.betsButton.TabIndex = 11;
             this.betsButton.Text = "Bets";
             this.betsButton.UseVisualStyleBackColor = true;
+            this.betsButton.Click += new System.EventHandler(this.betsButton_Click);
             // 
             // cashBet
             // 
@@ -281,21 +283,36 @@
             this.alBetLabel.TabIndex = 18;
             this.alBetLabel.Text = "alBetLabel";
             // 
-            // button1
+            // raceButton
             // 
-            this.button1.Location = new System.Drawing.Point(630, 326);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 97);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Race!";
-            this.button1.UseVisualStyleBackColor = true;
+            this.raceButton.Location = new System.Drawing.Point(630, 326);
+            this.raceButton.Name = "raceButton";
+            this.raceButton.Size = new System.Drawing.Size(220, 97);
+            this.raceButton.TabIndex = 19;
+            this.raceButton.Text = "Race!";
+            this.raceButton.UseVisualStyleBackColor = true;
+            this.raceButton.Click += new System.EventHandler(this.raceButton_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // betBox
+            // 
+            this.betBox.Enabled = false;
+            this.betBox.Location = new System.Drawing.Point(12, 295);
+            this.betBox.Name = "betBox";
+            this.betBox.Size = new System.Drawing.Size(894, 155);
+            this.betBox.TabIndex = 20;
+            this.betBox.TabStop = false;
+            this.betBox.Text = "betBox";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 459);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.raceButton);
             this.Controls.Add(this.alBetLabel);
             this.Controls.Add(this.bobBetLabel);
             this.Controls.Add(this.joeBetLabel);
@@ -315,13 +332,14 @@
             this.Controls.Add(this.dogPictureBox2);
             this.Controls.Add(this.dogPictureBox1);
             this.Controls.Add(this.racetrackPictureBox);
+            this.Controls.Add(this.betBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "A Day At The Races";
             ((System.ComponentModel.ISupportInitialize)(this.racetrackPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dogPictureBox2)).EndInit();
@@ -355,8 +373,9 @@
         private System.Windows.Forms.Label joeBetLabel;
         private System.Windows.Forms.Label bobBetLabel;
         private System.Windows.Forms.Label alBetLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button raceButton;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.GroupBox betBox;
     }
 }
 
